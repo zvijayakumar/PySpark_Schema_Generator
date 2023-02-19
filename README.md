@@ -1,66 +1,56 @@
-Spark Schema Generator from PostgreSQL Table Schema
-This repository contains a Python script that generates a Spark StructType schema from a PostgreSQL table schema.
+<!DOCTYPE html>
 
-Requirements
-To use the script, you will need:
+<body>
 
-Python 3.x
-pyspark module
-psycopg2 module
-Access to a PostgreSQL database with the schema you want to generate a Spark schema for
-Usage
-Clone the repository to your local machine:
+  <h1>PySpark StructType schema generator from PostgreSQL table schema</h1>
 
-git clone https://github.com/yourusername/spark-postgres-schema-generator.git
-Install the required modules:
+  <p>This Python program generates a PySpark StructType schema from a PostgreSQL table schema. The program connects to a PostgreSQL database, reads the schema of the specified table, and maps the PostgreSQL data types to the corresponding PySpark data types.</p>
 
-pip install pyspark psycopg2
-Open the generate_spark_schema.py file in your preferred text editor.
+  <h2>Prerequisites</h2>
 
-Update the following variables to match your PostgreSQL database connection details:
+  <ul>
+    <li>Python 3.x</li>
+    <li>PySpark</li>
+    <li>psycopg2</li>
+    <li>A PostgreSQL database with a table to generate the schema from</li>
+  </ul>
 
+  <h2>Usage</h2>
 
-host = "localhost"
-database = "mydb"
-user = "myuser"
-password = "mypassword"
-Update the schema_name variable to match the name of the PostgreSQL schema you want to generate a Spark schema for:
+  <ol>
+    <li>Clone the repository: <code>git clone https://github.com/username/repo.git</code></li>
+    <li>Navigate to the directory: <code>cd repo</code></li>
+    <li>Edit the <code>config.ini</code> file to specify the PostgreSQL database connection parameters and the name of the table to generate the schema from</li>
+    <li>Run the program: <code>python generate_schema.py</code></li>
+  </ol>
 
+  <h2>Configuring the program</h2>
 
-python generate_spark_schema.py
-The script will print the generated Spark schema to the console.
+  <p>The program can be configured by editing the <code>config.ini</code> file. The file contains the following parameters:</p>
 
-Supported PostgreSQL Data Types
-The script supports the following PostgreSQL data types:
+  <ul>
+    <li><code>host</code>: the hostname or IP address of the PostgreSQL server</li>
+    <li><code>port</code>: the port number of the PostgreSQL server</li>
+    <li><code>database</code>: the name of the PostgreSQL database</li>
+    <li><code>user</code>: the username to connect to the PostgreSQL database</li>
+    <li><code>password</code>: the password to connect to the PostgreSQL database</li>
+    <li><code>table_name</code>: the name of the table to generate the schema from</li>
+  </ul>
 
-ARRAY
-bigint
-boolean
-bytea
-character
-character varying
-date
-double precision
-integer
-json
-name
-numeric
-oid
-smallint
-text
-timestamp with time zone
-timestamp without time zone
+  <h2>Example output</h2>
 
+  <p>The program generates output similar to the following:</p>
 
-Notes
-The script assumes that any PostgreSQL column with a NOT NULL constraint is required in the Spark schema, and any column without a NOT NULL constraint is nullable in the Spark schema.
-The script assumes that any PostgreSQL array column contains string elements.
-The script assumes that any PostgreSQL numeric column has a specified precision and scale. If your database uses the default precision and scale for numeric columns, you may need to modify the script to handle this case.
-The script assumes that the PostgreSQL schema name you provide has access to the tables you want to generate a Spark schema for. If you need to generate a schema for tables in a different schema, you will need to update the script accordingly.
+  <pre><code>StructType(List(StructField(id,IntegerType,true),StructField(name,StringType,true),StructField(age,IntegerType,true)))</code></pre>
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+  <h2>Contributing</h2>
 
+  <p>Contributions are welcome! Please submit a pull request if you'd like to contribute.</p>
 
+  <h2>License</h2>
 
+  <p>This program is licensed under the MIT license. See the <a href="LICENSE.md">LICENSE.md</a> file for details.</p>
 
+</body>
+
+</html>
